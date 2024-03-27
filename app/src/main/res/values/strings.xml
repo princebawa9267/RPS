@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RPS</string>
+    <string name="computer">Computer</string>
+    <string name="computer_score">0</string>
+    <string name="you">You</string>
+    <string name="your_score">0</string>
+    <string name="scissor">Scissor</string>
+    <string name="paper">Paper</string>
+    <string name="rock">Rock</string>
+    <string name="choose_your_input">Choose your Input</string>
+</resources>
