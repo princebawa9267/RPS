@@ -14,7 +14,8 @@ public class MainActivity extends AppCompatActivity {
     TextView computer_score,your_score;// Text displayed
     ImageView computer_img,your_img; // Image of hand of user and computer
     char result; // Result of match
-    int computerScore,yourScore; // Score counter for user and computer
+    char computerOutput; //used for image transformation
+    int computerScoreInInteger,yourScoreInInteger; // Score counter for user and computer
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
         your_img = findViewById(R.id.your_img);
         computer_score = findViewById(R.id.computer_score);
         your_score = findViewById(R.id.your_score);
-        // Text viewed converted into Interger for Score monitoring
-        computerScore = Integer.parseInt(computer_score.getText().toString());
-        yourScore = Integer.parseInt(your_score.getText().toString());
+        // Text viewed converted into Integer for Score monitoring
+        computerScoreInInteger = Integer.parseInt(computer_score.getText().toString());
+        yourScoreInInteger = Integer.parseInt(your_score.getText().toString());
 
         //Animation used for waving hand
         Animation animationLeftHand = AnimationUtils.loadAnimation(this,R.anim.left_hand);
@@ -38,38 +39,58 @@ public class MainActivity extends AppCompatActivity {
 
 
         btn_rock.setOnClickListener(v -> {
-            RPS_Game game = new RPS_Game('R'); //Input passed for operation
-            result = game.takeInput();  // Output :- You are winner,Looser or match is Draw.
-            check(); //Result is check and updation of score based on result.
-
-            //Updating the score of the computer and user.
-            computer_score.setText(computerScore);
-            your_score.setText(yourScore);
+            your_img.setImageResource(R.drawable.rightrock);
+            operationAfterButtonClick('R');
+            check();
         });
         btn_paper.setOnClickListener(v -> {
-            RPS_Game game = new RPS_Game('P');
-            result = game.takeInput();
+            your_img.setImageResource(R.drawable.rightpaper);
+            operationAfterButtonClick('P');
             check();
-            computer_score.setText(computerScore);
-            your_score.setText(yourScore);
         });
         btn_scissor.setOnClickListener(v -> {
-            RPS_Game game = new RPS_Game('S');
-            result = game.takeInput();
+            your_img.setImageResource(R.drawable.rightscissor);
+            operationAfterButtonClick('S');
             check();
-            computer_score.setText(computerScore);
-            your_score.setText(yourScore);
         });
     }
     void check() // check function is used to update score.
     {
         if(result=='W') // 'W' used for winner of user.
         {
-            yourScore++;
+            yourScoreInInteger++;
         } else if (result == 'L')  //'L' used for Lose of user.
         {
-            computerScore++;
+            computerScoreInInteger++;
         }
+        // Updating score of computer and user
+        computer_score.setText(Integer.toString(computerScoreInInteger));
+        your_score.setText(Integer.toString(yourScoreInInteger));
+    }
+    void computerImageChange(char computerOutput)
+    {
+        if(computerOutput == 'R')
+        {
+            computer_img.setImageResource(R.drawable.leftrock);
+        }
+        else if (computerOutput == 'S') {
+            computer_img.setImageResource(R.drawable.leftscissor);
+        }
+        else
+        {
+            computer_img.setImageResource(R.drawable.leftpaper);
+        }
+    }
+
+    void operationAfterButtonClick(char userInput)
+    {
+        //Input passed for operation
+        RPS_Game game = new RPS_Game(userInput);
+        computerOutput = game.computerInput();
+        // Output :- You are winner,Looser or match is Draw.
+        result = game.matchResult();
+        computerImageChange(computerOutput);
+        //Result is check and update score based on result.
     }
 
 }

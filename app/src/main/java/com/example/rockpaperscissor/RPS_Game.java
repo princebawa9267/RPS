@@ -6,17 +6,16 @@ public class RPS_Game {
     public RPS_Game(char userInput)
     {
         this.userInput = userInput;
-        computerInput();
-        takeInput();
     }
     String Alphabet = "RPS" ; //This String will be used to generate random from R (Rock),P (Paper) and S (Scissor)
-    void computerInput()
+    char computerInput()
     {
         //This will generate random from R,P,S
         Random Rand = new Random();
         Output = Alphabet.charAt(Rand.nextInt(Alphabet.length()));
+        return Output;
     }
-    char takeInput()
+    char matchResult()
     {
         //Condition where User won the match
         /*
