@@ -31,19 +31,22 @@
             android:layout_height="wrap_content"
             android:text="Let's Play"
             android:layout_gravity="center"
-            android:textSize="20sp"/>
+            android:textSize="27sp"
+            android:fontFamily="@font/akronim"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rock, Paper, Scissor"
             android:layout_gravity="center"
-            android:textSize="20sp"/>
+            android:textSize="27sp"
+            android:fontFamily="@font/akronim"/>
 
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center"
-                android:src="@drawable/start_button" />
+                android:src="@drawable/start_button"
+                android:id="@+id/StartGame"/>
 
     </LinearLayout>
 

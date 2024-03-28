@@ -1,6 +1,10 @@
 package com.example.rockpaperscissor;
 
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -12,10 +16,12 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     Button btn_rock,btn_paper,btn_scissor;//Button for Inputs
     TextView computer_score,your_score;// Text displayed
+    TextView resultDisplay; //Display result of the match
     ImageView computer_img,your_img; // Image of hand of user and computer
     char result; // Result of match
     char computerOutput; //used for image transformation
     int computerScoreInInteger,yourScoreInInteger; // Score counter for user and computer
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +33,11 @@ public class MainActivity extends AppCompatActivity {
         your_img = findViewById(R.id.your_img);
         computer_score = findViewById(R.id.computer_score);
         your_score = findViewById(R.id.your_score);
+        resultDisplay = findViewById(R.id.resultDisplay);
         // Text viewed converted into Integer for Score monitoring
         computerScoreInInteger = Integer.parseInt(computer_score.getText().toString());
         yourScoreInInteger = Integer.parseInt(your_score.getText().toString());
+
 
         //Animation used for waving hand
         Animation animationLeftHand = AnimationUtils.loadAnimation(this,R.anim.left_hand);
@@ -59,9 +67,19 @@ public class MainActivity extends AppCompatActivity {
         if(result=='W') // 'W' used for winner of user.
         {
             yourScoreInInteger++;
+            resultDisplay.setText("You Won");
+            resultDisplay.setTextColor(Color.GREEN);
         } else if (result == 'L')  //'L' used for Lose of user.
         {
             computerScoreInInteger++;
+            resultDisplay.setText("You Lose");
+            resultDisplay.setTextColor(Color.RED);
+            ((Vibrator)getSystemService(VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(300,100));
+        }
+        else
+        {
+            resultDisplay.setText("Draw");
+            resultDisplay.setTextColor(Color.BLACK);
         }
         // Updating score of computer and user
         computer_score.setText(Integer.toString(computerScoreInInteger));

@@ -12,7 +12,7 @@ public class RPS_SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rps_splash);
-        Intent iHome = new Intent(RPS_SplashScreen.this,MainActivity.class);
+        Intent iHome = new Intent(RPS_SplashScreen.this,b_page_of_rps.class);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

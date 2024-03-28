@@ -16,27 +16,29 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:src="@drawable/computer_pic"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="@string/computer_score"
-                android:textSize="15sp"
+                android:gravity="center_horizontal"
+                android:textSize="23sp"
                 android:id="@+id/computer_score"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="30sp"
                 android:text="v/s"
+                android:textSize="30sp"
                 android:textStyle="bold"
-                />
+                android:fontFamily="@font/faster_one"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -45,15 +47,16 @@
             android:layout_alignParentEnd="true"
             >
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:src="@drawable/human_pic"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="@string/your_score"
                 android:id="@+id/your_score"
-                android:textSize="15sp"/>
+                android:textSize="23sp"
+                android:gravity="center_horizontal"/>
         </LinearLayout>
     </RelativeLayout>
 
@@ -88,11 +91,22 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/choose_your_input"
+            android:layout_height="52dp"
             android:gravity="center"
+            android:text=""
+            android:textSize="35sp"
+            android:textStyle="bold|italic"
+            android:fontFamily="@font/frijole"
+            android:id="@+id/resultDisplay"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/choose_your_input"
+            android:fontFamily="@font/miltonian"
             android:textSize="25sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -103,18 +117,24 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
                 android:text="@string/rock"
-                android:id="@+id/btn_rock"/>
+                android:id="@+id/btn_rock"
+                android:textSize="20sp"
+                android:fontFamily="@font/akronim"/>
             <Button
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
                 android:text="@string/paper"
-                android:id="@+id/btn_paper"/>
+                android:id="@+id/btn_paper"
+                android:textSize="20sp"
+                android:fontFamily="@font/akronim"/>
             <Button
                 android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:text="@string/scissor"
-                android:id="@+id/btn_scissor"/>
+                android:id="@+id/btn_scissor"
+                android:textSize="20sp"
+                android:fontFamily="@font/akronim"/>
         </LinearLayout>
 
     </LinearLayout>

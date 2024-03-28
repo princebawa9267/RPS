@@ -8,6 +8,14 @@
     tools:context=".c_page_of_rps"
     android:background="@color/white">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="V/S"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/frijole"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,18 +33,18 @@
                 android:layout_marginTop="50dp"
                 android:src="@drawable/human_pic"/>
         </LinearLayout>
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:elevation="20dp"
-        app:cardCornerRadius="30dp">
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id="@+id/vs"
-            android:src="@drawable/vs"/>
-    </androidx.cardview.widget.CardView>
-
+<!--        <ImageView-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:id="@+id/vs"-->
+<!--            android:src="@drawable/vs"-->
+<!--            android:layout_centerInParent="true"/>-->
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:lottie_rawRes="@raw/blast_lootiefile"
+            app:lottie_autoPlay="true"
+            app:lottie_repeatMode="reverse"
+            />
 
 </RelativeLayout>
